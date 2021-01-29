@@ -47,6 +47,11 @@ function Home() {
                         onKeyPress={search}
                     />
                 </div>
+
+                {(weatherData.cod === '404') ? (
+                    <p class='error'>No city found. Maybe try just putting the city name?</p>
+                ): ('')}
+                <br></br>
                 {(typeof weatherData.main != 'undefined') ? (
                     <div>
                         <div className='location-box'>
@@ -60,14 +65,24 @@ function Home() {
                         </div>
 
                     </div>
-                ): ('')}
+                ): (
+                    <div>
+                        <div className='location-box'>
+                            <div className='location'>Weather Wizard</div>
+                            <div className='date'>{dateBuilder(new Date())}</div>
+                        </div>
+                                
+                        <div className='weather-box'>
+                            <div className='weather'></div>
+                        </div>
 
-                {(weatherData.cod === '404') ? (
-                    <p class='error'>No city found. Maybe try just putting the city name?</p>
-                ): ('')}
+
+                    </div>
+                )}
+
 
                 <div className='credit'>
-                    <p className='my-name'>Weather Wizard by <a href="https://arpanneupane.com" target="__blank">Arpan Neupane</a></p>
+                    <p className='my-name'>Created by <a href="https://arpanneupane.com" target="__blank">Arpan Neupane</a></p>
                 </div>
 
 
