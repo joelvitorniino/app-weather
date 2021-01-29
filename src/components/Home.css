@@ -41,7 +41,6 @@ main {
     outline: none;
     background-color: rgba(255,255,255,0.7);
     border-radius: 7px;
-    /* box-shadow: 0px 5px rgba(0,0,0,0.2); */
     color: #313131;
     font-size: 20px;
     transition: 0.4 ease;
@@ -72,18 +71,29 @@ main {
     text-align: center;
 }
 
+.credit {
+    text-align: center;
+}
+
 .credit > p {
     margin-top: 50px;
-    text-align: center;
     color: white;
     font-weight: none;
     font-size: 1.5em;
 }
 
-.credit > p > a{
+.credit > p > a {
     text-decoration: none;
     color: rgb(0,140,255);
 }
+
+.error {
+    margin-top: 5%;
+    color: white;
+    text-align: center;
+    font-size: larger;
+}
+
 
 .weather-box .temp {
     position: relative;

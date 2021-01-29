@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import "./Home.css";
 
 function Home() {
+
     const dateBuilder = (d) => {
         let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -12,30 +13,28 @@ function Home() {
         let year = d.getFullYear();
     
         return `${day} ${month} ${date}, ${year}`
-      }
+    }
 
     
-        const [weatherData, setWeatherData] = useState([{}]);
-        const apiKey = '23078d05d26dfb3866e6d951ae068ca7';
-        const [city, setCity] = useState('');
-        const [unit, setUnit] = useState(true);
+    const [weatherData, setWeatherData] = useState([{}]);
+    const apiKey = '23078d05d26dfb3866e6d951ae068ca7';
+    const [city, setCity] = useState('');
+    const [unit, setUnit] = useState(true);
 
-        const search = event => {
-            if (event.key === 'Enter') {
-                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`).then(
-                    response => response.json()
-                ).then(
-                    data => {
-                        setWeatherData(data);
-                        setCity('')
-                        console.log(data)
-                    }
-                )
-            }
-
+    const search = event => {
+        if (event.key === 'Enter') {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`).then(
+                response => response.json()
+            ).then(
+                data => {
+                    setWeatherData(data);
+                    setCity('')
+                }
+            )
         }
 
-    
+    }    
+
       return (
         <div className={(typeof weatherData.main != 'undefined') ? ((weatherData.main.temp > 50) ? 'app warm' : 'app'): 'app'}>
             <main>
@@ -59,25 +58,23 @@ function Home() {
                             <div className='temp' onClick={()=> unit ? setUnit(false) : setUnit(true)}>{unit ? <p>{Math.round(weatherData.main.temp)}ºF</p> : <p>{Math.round((weatherData.main.temp-32)*5/9)}ºC</p>}</div>
                             <div className='weather'>{weatherData.weather[0].main}</div>
                         </div>
+
                     </div>
                 ): ('')}
 
-                {(weatherData.cod === "400") ? (
-                    console.log('error')
-                ): ('')}
-
                 {(weatherData.cod === '404') ? (
-                    console.log('City Not Found')
+                    <p class='error'>No city found. Maybe try just putting the city name?</p>
                 ): ('')}
-
 
                 <div className='credit'>
-                    <p>Weather Wizard by <a href="https://arpanneupane.com" target="__blank">Arpan Neupane</a></p>
+                    <p className='my-name'>Weather Wizard by <a href="https://arpanneupane.com" target="__blank">Arpan Neupane</a></p>
                 </div>
+
 
             </main>
 
         </div>
+
       )
 }
 
