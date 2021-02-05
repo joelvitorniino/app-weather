@@ -17,7 +17,7 @@ function Home() {
 
     
     const [weatherData, setWeatherData] = useState([{}]);
-    const apiKey = '93aef6ffd0c8ec573f90f4cc4eb0c951';
+    const apiKey = '<API>';
     const [city, setCity] = useState('');
     const [unit, setUnit] = useState(true);
 
@@ -39,7 +39,7 @@ function Home() {
         <div className={(typeof weatherData.main != 'undefined') ? ((weatherData.main.temp > 50) ? 'app warm' : 'app'): 'app'}>
             <main>
                 <div className='search-box'>
-                    <input type='text'
+                    <input type='p'
                         className='search-bar'
                         placeholder='Enter City...'
                         onChange={e => setCity(e.target.value)}
@@ -61,8 +61,10 @@ function Home() {
                                 
                         <div className='weather-box'>
                             <div className='temp' onClick={()=> unit ? setUnit(false) : setUnit(true)}>{unit ? <p>{Math.round(weatherData.main.temp)}ºF</p> : <p>{Math.round((weatherData.main.temp-32)*5/9)}ºC</p>}</div>
+                            {unit ? <p className='min-max'>Min: {Math.round(weatherData.main.temp_min)}ºF / Max: {Math.round(weatherData.main.temp_max)}ºF</p> : <p className='min-max'>Min: {Math.round((weatherData.main.temp_min - 32) * 5/9)}ºC / Max: {Math.round((weatherData.main.temp_max - 32) * 5/9)}ºC</p>}
                             <div className='weather'>{weatherData.weather[0].main}</div>
                         </div>
+
 
                     </div>
                 ): (
