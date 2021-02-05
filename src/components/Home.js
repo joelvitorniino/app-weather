@@ -84,7 +84,7 @@ function Home() {
 
 
                 <div className='credit'>
-                    <p className='my-name'>Created by <a href="https://arpanneupane.com" target="__blank">Arpan Neupane</a></p>
+                    <p className='my-name'>Developed by <a href="https://arpanneupane.com" target="__blank">Arpan Neupane</a></p>
                 </div>
 
 
