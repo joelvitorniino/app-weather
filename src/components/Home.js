@@ -17,7 +17,7 @@ function Home() {
 
     
     const [weatherData, setWeatherData] = useState([{}]);
-    const apiKey = '<API>';
+    const apiKey = 'bf6a57bf6aeaf27e784601e1ea04c540';
     const [city, setCity] = useState('');
     const [unit, setUnit] = useState(true);
 
