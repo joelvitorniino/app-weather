@@ -91,6 +91,10 @@ main {
   color: rgb(0, 140, 255);
 }
 
+.recents {
+  text-align: center;
+}
+
 .error {
   margin-top: 5%;
   color: white;

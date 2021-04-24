@@ -1,0 +1,89 @@
+a {
+  text-decoration: none;
+  color: rgb(0, 140, 255);
+}
+
+.modal-container {
+  width: 35%;
+  padding: 15px;
+  border: 1px solid lightgray;
+  box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  z-index: 500;
+  top: 35%;
+  left: 30%;
+  background-color: white;
+  position: fixed;
+  margin: 10px;
+  transition: 0.1s ease-in;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-header > p {
+  font-size: larger;
+}
+
+.modal-header > span {
+  font-size: larger;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.temperatures {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-modal-btn {
+  cursor: pointer;
+}
+
+hr {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border: 0;
+  background: lightgray;
+  height: 1px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modal-container {
+    width: 70%;
+    left: 13.5%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .modal-container {
+    width: 90%;
+    left: 3.5%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .modal-container {
+    width: 90%;
+    left: 3%;
+    top: 26%;
+  }
+}
+
+@media (max-width: 319px) {
+  .modal-container {
+    width: initial;
+    left: 0%;
+    top: 20%;
+  }
+}
