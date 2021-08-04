@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import "./Recents.css";
 import Modal from './Modal';
 import { Link } from 'react-router-dom';
-import { isCompositeComponent } from 'react-dom/test-utils';
-
 
 let json = require('./recents.json');
 
@@ -15,7 +13,7 @@ function Recents() {
     // this function will both show the modal and also get the weather. 
     const showModal = (city) => {
         setIsModalVisible(true)
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`).then(
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`).then(
             response => response.json()
         ).then(
             data => {
@@ -29,8 +27,6 @@ function Recents() {
     const closeModal = () => {
         setIsModalVisible(false);
     }
-
-    const apiKey = 'bf6a57bf6aeaf27e784601e1ea04c540';
 
     return (
         <div className='app warm'>
