@@ -1,14 +1,15 @@
 import React from 'react'
-import Home from './components/Home';
+import Weather from './components/Weather';
 import Recents from './components/Recents';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import dotenv from 'dotenv'
 
 function App() {
     return (
         <Router>
             <Switch>
-                <Route exact path='/'>
-                    <Home />
+                <Route exact path={['/', '/home']}>
+                    <Weather />
                 </Route>
             </Switch>
             <Switch>
