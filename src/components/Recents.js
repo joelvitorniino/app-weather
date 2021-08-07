@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Recents.css";
 import Modal from './Modal';
 import { Link } from 'react-router-dom';
+require('dotenv').config()
 
 let json = require('./recents.json');
 

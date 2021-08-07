@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./Weather.css";
 import { Link } from 'react-router-dom';
+require('dotenv').config()
 
 function Weather() {
     const [weatherData, setWeatherData] = useState([{}]);
